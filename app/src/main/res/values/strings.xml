@@ -3,5 +3,21 @@
     <string name="textFindDinder">Find Dinder</string>
     <string name="ProfileName">Profile Name</string>
     <string name="textVegetarian">Vegetarian</string>
+    <string name="textVegan">Vegan</string>
+    <string name="textTODO">TODO</string>
+    <string name="textKosher">Kosher</string>
+    <string name="textHalal">Halal</string>
+    <string name="textGluttenFree">Glutten-Free</string>
+    <string name="textAllergies">Allergies</string>
+    <string name="textOther">Other</string>
+    <string name="textDiets">Dietary Restrictions:</string>
+    <string name="hintEnter">Enter Here</string>
+    <string name="textInterest">Interests:</string>
+    <string name="textSports">Sports</string>
+    <string name="textMovies">Movies</string>
+    <string name="textOutdoors">Outdoors</string>
+    <string name="textMusic">Music</string>
+    <string name="textBooks">Books</string>
+    <string name="textGames">Games</string>
 
 </resources>

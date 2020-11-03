@@ -2,5 +2,6 @@
     <string name="app_name">DinderFE</string>
     <string name="textFindDinder">Find Dinder</string>
     <string name="ProfileName">Profile Name</string>
+    <string name="textVegetarian">Vegetarian</string>
 
 </resources>

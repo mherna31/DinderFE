@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DinderFE</string>
+    <string name="textFindDinder">Find Dinder</string>
+
 </resources>

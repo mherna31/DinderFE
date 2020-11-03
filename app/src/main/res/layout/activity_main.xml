@@ -18,18 +18,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/profileName"
         android:layout_width="272dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/ProfileName"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/profilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/boxVegetarian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,17 +40,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/boxVegan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textVegan"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox2"
-        app:layout_constraintStart_toEndOf="@+id/checkBox2" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxVegetarian"
+        app:layout_constraintStart_toEndOf="@+id/boxVegetarian" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profilePic"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -70,7 +70,7 @@
         android:background="@android:color/holo_red_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePic" />
 
     <View
         android:id="@+id/view2"
@@ -83,10 +83,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox9" />
+        app:layout_constraintTop_toBottomOf="@+id/boxOther" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/boxHalal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -94,40 +94,40 @@
         android:text="@string/textHalal"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/boxVegetarian" />
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/boxGlutten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textGluttenFree"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox5"
-        app:layout_constraintStart_toEndOf="@+id/checkBox5" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxHalal"
+        app:layout_constraintStart_toEndOf="@+id/boxHalal" />
 
     <CheckBox
-        android:id="@+id/checkBox7"
+        android:id="@+id/boxKosher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textKosher"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox3"
-        app:layout_constraintStart_toEndOf="@+id/checkBox3" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxVegan"
+        app:layout_constraintStart_toEndOf="@+id/boxVegan" />
 
     <CheckBox
-        android:id="@+id/checkBox8"
+        android:id="@+id/boxAllergies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textAllergies"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox6"
-        app:layout_constraintStart_toEndOf="@+id/checkBox6" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxGlutten"
+        app:layout_constraintStart_toEndOf="@+id/boxGlutten" />
 
     <CheckBox
-        android:id="@+id/checkBox9"
+        android:id="@+id/boxOther"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -135,10 +135,10 @@
         android:text="@string/textOther"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+        app:layout_constraintTop_toBottomOf="@+id/boxHalal" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editOther"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -148,8 +148,8 @@
         android:inputType="textPersonName"
         android:textSize="18sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox9"
-        app:layout_constraintStart_toEndOf="@+id/checkBox9" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxOther"
+        app:layout_constraintStart_toEndOf="@+id/boxOther" />
 
     <TextView
         android:id="@+id/textView4"
@@ -176,17 +176,17 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <CheckBox
-        android:id="@+id/checkBox10"
+        android:id="@+id/boxOutdoors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textOutdoors"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox11"
-        app:layout_constraintStart_toEndOf="@+id/checkBox11" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxMovies"
+        app:layout_constraintStart_toEndOf="@+id/boxMovies" />
 
     <CheckBox
-        android:id="@+id/checkBox13"
+        android:id="@+id/boxMusic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -194,40 +194,40 @@
         android:text="@string/textMusic"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox12" />
+        app:layout_constraintTop_toBottomOf="@+id/boxSport" />
 
     <CheckBox
-        android:id="@+id/checkBox14"
+        android:id="@+id/boxBooks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textBooks"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox13"
-        app:layout_constraintStart_toEndOf="@+id/checkBox13" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxMusic"
+        app:layout_constraintStart_toEndOf="@+id/boxMusic" />
 
     <CheckBox
-        android:id="@+id/checkBox15"
+        android:id="@+id/boxGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textGames"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox14"
-        app:layout_constraintStart_toEndOf="@+id/checkBox14" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxBooks"
+        app:layout_constraintStart_toEndOf="@+id/boxBooks" />
 
     <CheckBox
-        android:id="@+id/checkBox11"
+        android:id="@+id/boxMovies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/textMovies"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox12"
-        app:layout_constraintStart_toEndOf="@+id/checkBox12" />
+        app:layout_constraintBottom_toBottomOf="@+id/boxSport"
+        app:layout_constraintStart_toEndOf="@+id/boxSport" />
 
     <CheckBox
-        android:id="@+id/checkBox12"
+        android:id="@+id/boxSport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

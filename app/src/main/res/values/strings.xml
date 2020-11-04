@@ -19,5 +19,24 @@
     <string name="textMusic">Music</string>
     <string name="textBooks">Books</string>
     <string name="textGames">Games</string>
+    <string name="textWhatWouldYouLike">What Would You LIke To Eat?</string>
+    <string name="textOr">Or</string>
+    <string name="textSurprise">Surprise Me!</string>
+    <string name="textNext"><![CDATA[Next ->]]></string>
+
+    <string-array name="cuisines">
+        <item>Select Cuisine</item>
+        <item> ------------ </item>
+        <item>Burgers</item>
+        <item>Chicken</item>
+        <item>Coffee</item>
+        <item>Indian</item>
+        <item>Mediterranean</item>
+        <item>Mexican</item>
+        <item>Pizza</item>
+        <item>Sushi</item>
+        <item>Steak</item>
+        <item>Subs</item>
+    </string-array>
 
 </resources>

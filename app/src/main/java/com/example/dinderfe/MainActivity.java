@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,9 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Profile");
 
+        Button dinder = findViewById(R.id.buttonFindDinder);
+        dinder.setBackgroundColor(getResources().getColor(R.color.red_theme));
 
-
-        findViewById(R.id.buttonFindDinder).setOnClickListener(new View.OnClickListener() {
+        dinder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

@@ -2,6 +2,7 @@ package com.example.dinderfe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,14 @@ public class FindDinderActivity extends AppCompatActivity implements AdapterView
         Button next = findViewById(R.id.buttonNext);
         next.setBackgroundColor(getResources().getColor(R.color.red_theme));
         surprise.setBackgroundColor(getResources().getColor(R.color.red_theme));
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),FoodMapsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

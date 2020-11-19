@@ -69,13 +69,12 @@
         android:layout_width="0dp"
         android:layout_height="3dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boxOther" />
+        app:layout_constraintTop_toBottomOf="@+id/boxGlutten" />
 
     <CheckBox
         android:id="@+id/boxHalal"
@@ -117,31 +116,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/boxGlutten"
         app:layout_constraintStart_toEndOf="@+id/boxGlutten" />
-
-    <CheckBox
-        android:id="@+id/boxOther"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/textOther"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boxHalal" />
-
-    <EditText
-        android:id="@+id/editOther"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/hintEnter"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/boxOther"
-        app:layout_constraintStart_toEndOf="@+id/boxOther" />
 
     <TextView
         android:id="@+id/textView4"

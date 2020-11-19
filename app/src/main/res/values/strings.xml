@@ -19,6 +19,8 @@
     <string name="textMusic">Music</string>
     <string name="textBooks">Books</string>
     <string name="textGames">Games</string>
+    <string name="textSave">Save Profile</string>
+    <string name="textEdit">Edit</string>
     <string name="textWhatWouldYouLike">What Would You LIke To Eat?</string>
     <string name="textOr">Or</string>
     <string name="textSurprise">Surprise Me!</string>
@@ -39,5 +41,6 @@
         <item>Subs</item>
     </string-array>
     <string name="title_activity_food_maps">Map</string>
+
 
 </resources>

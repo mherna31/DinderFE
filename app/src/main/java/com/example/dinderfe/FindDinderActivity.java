@@ -38,6 +38,15 @@ public class FindDinderActivity extends AppCompatActivity implements AdapterView
                 startActivity(intent);
             }
         });
+
+        surprise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),FoodMapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

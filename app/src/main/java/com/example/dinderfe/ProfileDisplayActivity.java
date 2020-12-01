@@ -26,18 +26,18 @@ public class ProfileDisplayActivity extends AppCompatActivity {
         ListView interests = findViewById(R.id.listInterest);
 
 
-        Bundle bundle = getIntent().getExtras();
-        ArrayList diet = (ArrayList) bundle.getSerializable("DIET");
-        ArrayList interest = (ArrayList) bundle.getSerializable("INTEREST");
+       // Bundle bundle = getIntent().getExtras();
+       // ArrayList diet = (ArrayList) bundle.getSerializable("DIET");
+       // ArrayList interest = (ArrayList) bundle.getSerializable("INTEREST");
 
-        ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, diet);
-        ArrayAdapter adapter2 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, interest);
+      //  ArrayAdapter adapter1 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, diet);
+      //  ArrayAdapter adapter2 = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, interest);
 
         edit.setBackgroundColor(getResources().getColor(R.color.red_theme));
         dinder.setBackgroundColor(getResources().getColor(R.color.red_theme));
 
-        diets.setAdapter(adapter1);
-        interests.setAdapter(adapter2);
+       // diets.setAdapter(adapter1);
+       // interests.setAdapter(adapter2);
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override

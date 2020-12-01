@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Create Profile");
 
-        Button dinder = findViewById(R.id.buttonSave);
+        Button save = findViewById(R.id.buttonSave);
         CheckBox vegetarian = findViewById(R.id.boxVegetarian);
         CheckBox vegan = findViewById(R.id.boxVegan);
         CheckBox kosher = findViewById(R.id.boxKosher);
@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
         CheckBox games = findViewById(R.id.boxGames);
 
 
-        dinder.setBackgroundColor(getResources().getColor(R.color.red_theme));
+        save.setBackgroundColor(getResources().getColor(R.color.red_theme));
 
-        dinder.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                diet.clear();
+            /*    diet.clear();
                 interest.clear();
 
                 if(vegetarian.isChecked()){
@@ -80,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(games.isChecked()){
                     interest.add("+Games");
-                }
+                }*/
 
                 Intent intent = new Intent(MainActivity.this,ProfileDisplayActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("DIET", diet);
-                bundle.putSerializable("INTEREST", interest);
-                intent.putExtras(bundle);
+               // Bundle bundle = new Bundle();
+              //  bundle.putSerializable("DIET", diet);
+              //  bundle.putSerializable("INTEREST", interest);
+              //  intent.putExtras(bundle);
 
                 startActivity(intent);
             }

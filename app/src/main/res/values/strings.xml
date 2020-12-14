@@ -41,6 +41,13 @@
         <item>Subs</item>
     </string-array>
     <string name="title_activity_food_maps">Map</string>
-
+    <string name="textDinder">Dinder</string>
+    <string name="textEmail">Email</string>
+    <string name="textPassword">Password</string>
+    <string name="textLogin">Log in</string>
+    <string name="textSignup">Sign up</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="textConfirm">Confirm Password</string>
+    <string name="textCreateAccount">Create Account</string>
 
 </resources>

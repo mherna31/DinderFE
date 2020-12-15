@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 public class SignUpActivity extends AppCompatActivity {
     Button create, back;
-    EditText email, password, cPassword;
+    EditText email, password, cpassword;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
@@ -24,9 +24,9 @@ public class SignUpActivity extends AppCompatActivity {
         back = findViewById(R.id.buttonBack);
         email = findViewById(R.id.cEmail);
         password = findViewById(R.id.cPassword);
-        cPassword = findViewById(R.id.confirmPassword);
+        cpassword = findViewById(R.id.confirmPassword);
 
-        cPassword.addTextChangedListener(new TextWatcher() {
+        cpassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -39,8 +39,8 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (!cPassword.getText().toString().equals(password.getText().toString())) {
-                    cPassword.setError("Password Does not Match");
+                if (!cpassword.getText().toString().equals(password.getText().toString())) {
+                    cpassword.setError("Password Does not Match");
                 }
 
             }
@@ -69,11 +69,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                     password.setError("Cannot be empty");
 
-                } else if (cPassword.getText().toString().trim().equalsIgnoreCase("")) {
+                } else if (cpassword.getText().toString().trim().equalsIgnoreCase("")) {
 
-                    cPassword.setError("Cannot be empty");
+                    cpassword.setError("Cannot be empty");
 
-                } else if (cPassword.getText().toString().equals(password.getText().toString())) {
+                } else if (cpassword.getText().toString().equals(password.getText().toString())) {
 
                 }
             }

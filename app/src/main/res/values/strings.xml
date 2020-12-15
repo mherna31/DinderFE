@@ -49,5 +49,7 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="textConfirm">Confirm Password</string>
     <string name="textCreateAccount">Create Account</string>
+    <string name="textCreateA">Create Account</string>
+    <string name="textBack">Back</string>
 
 </resources>

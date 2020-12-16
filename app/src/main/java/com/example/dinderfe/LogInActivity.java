@@ -8,19 +8,28 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +37,6 @@ public class LogInActivity extends AppCompatActivity {
 
     Button login, signup;
     EditText email, password;
-    boolean success;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,53 +63,79 @@ public class LogInActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
-    private void sendPostRequest(String email, String password) {
-        Log.d("LoginFailure", "Inside Post method");
+    //Post request for logging in
+    private void sendPostRequest(String email, String password) throws JSONException {
+        Log.d("Login", "Inside Post method");
         String url = "https://drewcav.com/api/Identity/Login";
+        JSONObject jsonBody = new JSONObject();
+        jsonBody.put("email", email);
+        jsonBody.put("password", password);
+        jsonBody.put("persistentLogin", false);
         RequestQueue request = Volley.newRequestQueue(LogInActivity.this);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
-                Log.d("PostSuccess", response);
+            public void onResponse(JSONObject response) {
+                Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_SHORT).show();
+                try {
+                    String ids = response.getString("id");
+                    //Log.d("Login", "id: " + ids);
+                  //  Log.d("Login", "Success" + response.toString());
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("USER_ID",ids);
+                    startActivity(intent);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("LoginFailure", error.toString());
-                if (error instanceof NetworkError) {
-                    Log.d("LoginFailure", "Network Error");
-                } else if (error instanceof AuthFailureError) {
-                    Log.d("LoginFailure", "Authentication Error");
-                } else if (error instanceof ParseError) {
-                    Log.d("LoginFailure", "Parse Error");
-                } else if (error instanceof NoConnectionError) {
-                    Log.d("LoginFailure", "Communication Error");
-                } else if (error instanceof TimeoutError) {
-                    Log.d("LoginFailure", "TimeOut Error");
+                NetworkResponse networkResponse = error.networkResponse;
+                Log.d("on error", " onError");
+                if (error instanceof ServerError && networkResponse != null) {
+                    try {
+                        String jsonerror = new String(networkResponse.data,
+                                HttpHeaderParser.parseCharset(networkResponse.headers, "utf-8"));
+
+                        JSONObject message = new JSONObject(jsonerror);
+                        Log.d("on error", " hey:" + message);
+                        Toast.makeText(getApplicationContext(), message.getString("message"), Toast.LENGTH_LONG).show();
+
+                    } catch (JSONException | UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                } else if (error instanceof AuthFailureError && networkResponse != null) {
+                    try {
+                        String jsonerror = new String(networkResponse.data,
+                                HttpHeaderParser.parseCharset(networkResponse.headers, "utf-8"));
+
+                        JSONObject message = new JSONObject(jsonerror);
+                        Log.d("on error", " hey:" + message);
+                        Toast.makeText(getApplicationContext(), message.getString("message"), Toast.LENGTH_LONG).show();
+
+                    } catch (JSONException | UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }) {
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("email", email);
-                params.put("password", password);
-                return params;
-            }
-                /*@Override
-                public Map<String,String> getHeaders() throws AuthFailureError{
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
 
-                }*/
+                return headers;
+            }
         };
 
-        request.add(stringRequest);
+        request.add(jsonObjectRequest);
+
     }
 
+    //Get request for Logging in
     private void sendGetRequest(String cemail, String cpassword) {
 
         RequestQueue queue = Volley.newRequestQueue(LogInActivity.this);
@@ -110,7 +144,11 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("LoginSuccess", response);
-                sendPostRequest(cemail,cpassword);
+                try {
+                    sendPostRequest(cemail, cpassword);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override

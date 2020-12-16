@@ -134,6 +134,8 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+                startActivity(intent);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -151,8 +153,6 @@ public class SignUpActivity extends AppCompatActivity {
                     } catch (JSONException | UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-
-
                 }
             }
         }) {
@@ -160,12 +160,12 @@ public class SignUpActivity extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
+
                 return headers;
             }
         };
 
         requestQueue.add(jsonObjectRequest);
-
     }
 
 }

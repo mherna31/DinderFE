@@ -51,5 +51,14 @@
     <string name="textCreateAccount">Create Account</string>
     <string name="textCreateA">Create Account</string>
     <string name="textBack">Back</string>
+    <string name="textFName">First Name</string>
+    <string name="testLName">Last Name</string>
+    <string name="textMale">Male</string>
+    <string name="textFemale">Female</string>
+    <string name="textOtherNA">Other/No Answer</string>
+    <string name="textGender">Gender:</string>
+    <string name="textPescetarian">Pescetarian</string>
+    <string name="textLactose">Lactose-Free</string>
+    <string name="textName">Name:</string>
 
 </resources>

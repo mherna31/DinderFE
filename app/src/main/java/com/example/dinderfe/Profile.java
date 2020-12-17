@@ -3,7 +3,9 @@ package com.example.dinderfe;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Profile {
+import java.io.Serializable;
+
+public class Profile implements Serializable {
     String first, last, avatar;
     int gender, diet, interest;
 
@@ -14,7 +16,7 @@ public class Profile {
         this.avatar = null;
         this.gender = body.getInt("gender");
         this.diet = body.getInt("dietaryRestrictions");
-        this.interest = body.getInt("interest");
+        this.interest = body.getInt("interests");
     }
 
 

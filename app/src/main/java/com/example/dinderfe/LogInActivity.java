@@ -79,7 +79,7 @@ public class LogInActivity extends AppCompatActivity {
                     String ids = response.getString("id");
                     //Log.d("Login", "id: " + ids);
                     Log.d("Login", "Success" + response.toString());
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ProfileDisplayActivity.class);
                     intent.putExtra("USER_ID",ids);
                     intent.putExtra("COOKIE",cookie);
                     startActivity(intent);

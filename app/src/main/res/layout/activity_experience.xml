@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupGender" />
 
     <View
         android:id="@+id/view13"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup3" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupSize" />
 
     <TextView
         android:id="@+id/textView11"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view12" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -124,7 +124,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/radioGroup3"
+        android:id="@+id/radioGroupSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -134,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/radioSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/red_theme"
@@ -143,7 +143,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/radioLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/red_theme"
@@ -151,7 +151,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/radioButton6"
+            android:id="@+id/radioAny"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/red_theme"
@@ -160,7 +160,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonFindMatches"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -169,12 +169,12 @@
         android:backgroundTint="@color/red_theme"
         android:text="@string/textFDinder"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBack2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonBack2"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -195,9 +195,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFindMatches"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view13"
-        app:srcCompat="@drawable/dinderlogo" />
+        app:srcCompat="@drawable/dinderlogo"
+        android:contentDescription="@string/todo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

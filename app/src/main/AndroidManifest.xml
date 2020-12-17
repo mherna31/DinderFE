@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DinderFE">
-        <activity android:name=".ExperienceActivity"></activity>
+        <activity android:name=".LookingActivity"></activity>
+        <activity android:name=".ExperienceActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>

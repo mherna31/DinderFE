@@ -70,5 +70,8 @@
     <string name="textSmall">Prefer Small</string>
     <string name="Large">Prefer Large</string>
     <string name="textFDinder">Find Your Dinder</string>
+    <string name="todo">TODO</string>
+    <string name="textLookin">Looking for Matches</string>
+    <string name="textMap">Go to Map</string>
 
 </resources>

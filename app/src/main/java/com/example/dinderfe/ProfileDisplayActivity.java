@@ -37,6 +37,7 @@ public class ProfileDisplayActivity extends AppCompatActivity {
     ArrayAdapter<String> adapterD, adapterI;
     TextView name;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

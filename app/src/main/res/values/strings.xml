@@ -29,16 +29,17 @@
     <string-array name="cuisines">
         <item>Select Cuisine</item>
         <item> ------------ </item>
-        <item>Burgers</item>
-        <item>Chicken</item>
-        <item>Coffee</item>
-        <item>Indian</item>
-        <item>Mediterranean</item>
-        <item>Mexican</item>
-        <item>Pizza</item>
         <item>Sushi</item>
-        <item>Steak</item>
-        <item>Subs</item>
+        <item>Mexican</item>
+        <item>Greek</item>
+        <item>Japanese</item>
+        <item>Thai</item>
+        <item>Chinese</item>
+        <item>Indian</item>
+        <item>American</item>
+        <item>Vietnamese</item>
+        <item>Bakery</item>
+        <item>Italian</item>
     </string-array>
     <string name="title_activity_food_maps">Map</string>
     <string name="textDinder">Dinder</string>

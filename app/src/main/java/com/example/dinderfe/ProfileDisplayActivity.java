@@ -35,7 +35,7 @@ public class ProfileDisplayActivity extends AppCompatActivity {
     ArrayList<String> dietList, interestList;
     Profile display;
     ArrayAdapter<String> adapterD, adapterI;
-    TextView name;
+    TextView name, gender;
 
 
     @Override
@@ -48,8 +48,8 @@ public class ProfileDisplayActivity extends AppCompatActivity {
         dinder = findViewById(R.id.buttonFindDinder);
         diets = findViewById(R.id.listDiet);
         interests = findViewById(R.id.listInterest);
-         name = findViewById(R.id.profileName);
-
+        name = findViewById(R.id.profileName);
+        gender = findViewById(R.id.profileGender);
         final String appid = getIntent().getExtras().getString("USER_ID");
         final String cookie = getIntent().getExtras().getString("COOKIE");
 
@@ -142,6 +142,17 @@ public class ProfileDisplayActivity extends AppCompatActivity {
         interests.setAdapter(adapterI);
     }
 
+    private void getPGender() {
+        if (display.getGender() == 0) {
+            gender.setText("M");
+        } else if (display.getGender() == 1) {
+            gender.setText("F");
+        } else {
+            gender.setText("Nonya");
+        }
+
+    }
+
     private void sendGetRequest(String id, String cookies) {
 
         RequestQueue queue = Volley.newRequestQueue(ProfileDisplayActivity.this);
@@ -155,7 +166,8 @@ public class ProfileDisplayActivity extends AppCompatActivity {
                 try {
                     display = new Profile(response);
                     Log.d("onCreate", display.toString());
-                    name.setText(display.getFirst()+" "+display.getLast());
+                    name.setText(display.getFirst() + " " + display.getLast());
+                    getPGender();
                     getDiets();
                     getInterest();
 

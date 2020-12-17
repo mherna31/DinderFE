@@ -61,5 +61,14 @@
     <string name="textPescetarian">Pescetarian</string>
     <string name="textLactose">Lactose-Free</string>
     <string name="textName">Name:</string>
+    <string name="textSelectExp">Select Your Experience</string>
+    <string name="textGenderP">Gender Preference:</string>
+    <string name="textMen">Prefer Men</string>
+    <string name="textWomen">Prefer Women</string>
+    <string name="textNop">Prefer Any</string>
+    <string name="textGroupS">Group Size:</string>
+    <string name="textSmall">Prefer Small</string>
+    <string name="Large">Prefer Large</string>
+    <string name="textFDinder">Find Your Dinder</string>
 
 </resources>

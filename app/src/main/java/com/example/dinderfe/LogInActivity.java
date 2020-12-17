@@ -11,15 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkError;
 import com.android.volley.NetworkResponse;
-import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
-import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -37,6 +33,7 @@ public class LogInActivity extends AppCompatActivity {
 
     Button login, signup;
     EditText email, password;
+    String cookie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +78,10 @@ public class LogInActivity extends AppCompatActivity {
                 try {
                     String ids = response.getString("id");
                     //Log.d("Login", "id: " + ids);
-                  //  Log.d("Login", "Success" + response.toString());
+                    Log.d("Login", "Success" + response.toString());
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     intent.putExtra("USER_ID",ids);
+                    intent.putExtra("COOKIE",cookie);
                     startActivity(intent);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -128,6 +126,14 @@ public class LogInActivity extends AppCompatActivity {
                 headers.put("Content-Type", "application/json; charset=utf-8");
 
                 return headers;
+            }
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+
+                Map<String, String> responseHeaders = response.headers;
+                 cookie = responseHeaders.get("Set-Cookie");
+                //Log.i("cookies",cookie);
+                return super.parseNetworkResponse(response);
             }
         };
 

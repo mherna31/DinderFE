@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         RadioButton other = findViewById(R.id.radioOther);
 
         final String appid = getIntent().getExtras().getString("USER_ID");
+        final String cookie = getIntent().getExtras().getString("COOKIE");
 
 
         genders.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -103,15 +104,15 @@ public class MainActivity extends AppCompatActivity {
                     last.setError("Cannot be empty");
                 } else {
                     try {
-                        postRequest(first.getText().toString(), last.getText().toString(), appid);
+                        postRequest(first.getText().toString(), last.getText().toString(), appid,cookie);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
                 }
 
                 //Log.d("save", "Diet: " + gender);
-                /*Intent intent = new Intent(MainActivity.this, ProfileDisplayActivity.class);
-                startActivity(intent);*/
+
             }
         });
         /**/
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             "dietaryRestrictions": 18,
             "interests": 15
     }*/
-    private void postRequest(String cfirst, String cLast, String id) throws JSONException {
+    private void postRequest(String cfirst, String cLast, String id, String cookies) throws JSONException {
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
         StringBuffer url = new StringBuffer("https://drewcav.com/api/Profile/Update/");
         url.append(id);
@@ -147,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 Log.d("onResponse", "Success");
                 Log.d("Login", "Success" + response.toString());
+                Intent intent = new Intent(MainActivity.this, ProfileDisplayActivity.class);
+                intent.putExtra("USER_ID",id);
+                intent.putExtra("COOKIE",cookies);
+                startActivity(intent);
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -170,6 +176,22 @@ public class MainActivity extends AppCompatActivity {
                  }else if(error instanceof NetworkError){
                      Log.d("onError","Network Error");
                  }else if(error instanceof ParseError){
+                     if(networkResponse != null){
+                         try {
+                             String jsonerror = new String(networkResponse.data,
+                                     HttpHeaderParser.parseCharset(networkResponse.headers, "utf-8"));
+
+                             JSONObject message = new JSONObject(jsonerror);
+                             Log.d("on error", " parseError" + networkResponse.statusCode);
+                             Toast.makeText(getApplicationContext(), message.getString("message"), Toast.LENGTH_LONG).show();
+
+                         } catch (JSONException | UnsupportedEncodingException e) {
+                             e.printStackTrace();
+                         }
+                     }
+                     assert networkResponse != null;
+                     Log.d("on error", " parseError" + networkResponse.statusCode);
+
                      Log.d("onError","Parse Error");
                  }
             }
@@ -178,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
-
+                headers.put("Cookie", cookies);
                 return headers;
             }
         };

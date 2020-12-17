@@ -67,7 +67,7 @@ public class LogInActivity extends AppCompatActivity {
 
     //Post request for logging in
     private void sendPostRequest(String email, String password) throws JSONException {
-        Log.d("Login", "Inside Post method");
+       // Log.d("Login", "Inside Post method");
         String url = "https://drewcav.com/api/Identity/Login";
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("email", email);
